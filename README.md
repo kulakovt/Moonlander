@@ -1,28 +1,9 @@
-# Раскладка Ильи Шепрута
+# Раскладка для клавиатуры Moonlander
 
-Про эту раскладку я написал большую статью, которую можно прочитать по ссылке ниже.
-
-# [Читать статью](https://optozorax.github.io/p/my-keyboard-layout/)
+Моя раскладка для клавиатуры [Moonlander](https://www.zsa.io/moonlander/). Основана на [раскладке Ильи Шепрута](https://github.com/optozorax/moonlander) (см. [статью](https://optozorax.github.io/p/my-keyboard-layout/)) и [раскладке Игоря Лабутина](https://github.com/ilabutin/moonlander).
 
 ## Как прошить
 
-Если вы попробуете скачать исходный код вашей раскладки, сделанной на Oryx, то она будет работать только с [форком QMK от ZSA](https://github.com/zsa/qmk_firmware). Конечно, можно использовать обычный QMK, но там вроде чего-то не хватает. Поэтому первым делом надо скачать этот форк (команды ниже не работают для винды).
+В репозитории настроены [Github Actions](https://github.com/kulakovt/Moonlander/actions), поэтому любой коммит приводит к сборке прошивки. Полученный бинарник нужно передать специальной программе для прошивания на устройство. Например:
 
-```bash
-git clone https://github.com/zsa/qmk_firmware zsa_qmk
-cd zsa_qmk
-./util/qmk_install.sh
-git submodule init
-git submodule update
-```
-
-Затем нужно создать символьную ссылку на папку с вашей раскладкой. Делать именно символьную ссылку нужно, чтобы не хранить свою раскладку где-то в дебрях этого форка QMK:
-
-```bash
-ln -s /home/optozorax/my/moonlander ~/zsa_qmk/keyboards/moonlander/keymaps/optozorax
-```
-
-Чтобы прошить, нужно внутри этого форка вызвать такую команду:
-```bash
-make moonlander:optozorax:flash
-```
+- [QMK Toolbox](https://github.com/qmk/qmk_toolbox)
